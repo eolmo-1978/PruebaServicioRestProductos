@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Interview.Models.DtoProducto>
+@{
+    ViewBag.Title = "Productos actuales";
+}
+
+<p></p>
+<p>
+    @Html.ActionLink("Nuevo producto", "Create", "Cliente", new { @class = "btn btn-warning" })
+</p>
+<div class="container-fluid" style="background-color:lightsteelblue">
+    <table class="table table-condensed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayName("Acciones")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(momodelItemdel => item.IdProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-primary glyphicon glyphicon-edit" }) |
+                    @Html.ActionLink("Detalle", "Details", new { id = item.IdProducto }, new { @class = "btn btn-info glyphicon glyphicon-search" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+

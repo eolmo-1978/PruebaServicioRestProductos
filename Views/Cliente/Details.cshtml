@@ -1,0 +1,44 @@
+﻿@model Interview.Models.DtoProducto
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ficha producto</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body class="alert-info">
+    <div>
+        <h3>Informacion del producto</h3>
+        <table class="table table-bordered table-responsive table-condensed">
+            <thead>
+                <tr class="btn-success">
+                    <th>Nombre articulo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Nombre)</td>
+                    <td>@Html.DisplayFor(model => model.Descripcion)</td>
+                    <td>@Html.DisplayFor(model => model.Precio)</td>
+                    <td>@Html.DisplayFor(model => model.Categoria)</td>
+                   
+                </tr>
+
+            </tbody>
+        </table>
+        <div>
+            @Html.ActionLink("Editar", "Edit", "Cliente", new { id = Model.IdProducto }, new { @class = "btn btn-primary" })
+        </div>
+        <p></p>
+    </div>
+    @Html.ActionLink("Volver al inicio", "Index", "Cliente")
+</body>
+</html>  
